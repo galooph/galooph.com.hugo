@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="{{ with .Site.Params.name }}{{ . }}{{ end }}">
+		<meta name="description" content="{{ with .Site.Params.description }}{{ . }}{{ end }}">
+{{ if .IsPage }}
+{{ if eq .Type "post"}}
+{{ with .Site.Params.facebook_app_id }}		<meta property="fb:admins" content="{{ . }}" />{{ end }}
+{{ with .Title }}		<meta property="og:title" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.full_name }}		<meta property="og:site_name" content="{{ . }}" />{{ end }}
+{{ with .Permalink }}		<meta property="og:url" content="{{ . }}" />{{ end }}
+{{ with .Summary }}		<meta property="og:description" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.facebook_page }}		<meta property="og:author" content="{{ . }}" />{{ end }}
+{{ with .Params.facebook.image }}		<meta property="og:image" content="{{ . }}" />{{ end }}
+		<meta property="twitter:card" content="summary" />
+{{ with .Site.Params.twitter }}		<meta property="twitter:site" content="{{ . }}" />{{ end }}
+{{ with .Permalink }}		<meta property="twitter:url" content="{{ . }}" />{{ end }}
+{{ with .Title }}		<meta property="twitter:title" content="{{ . }}" />{{ end }}
+{{ with .Summary }}		<meta property="twitter:description" content="{{ . }}" />{{ end }}
+{{ with .Params.twitter_card.creator }}		<meta property="twitter:creator" content="{{ . }}" />{{ end }}
+{{ with .Params.twitter_card.image }}		<meta property="twitter:image:src" content="{{ . }}" />{{ end }}
+{{ else }}
+{{ with .Site.Params.facebook_app_id }}		<meta property="fb:admins" content="{{ . }}" />{{ end }}
+{{ with .Title }}		<meta property="og:title" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.full_name }}		<meta property="og:site_name" content="{{ . }}" />{{ end }}
+{{ with .Permalink }}		<meta property="og:url" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.description }}		<meta property="og:description" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.facebook_page }}		<meta property="og:author" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.facebook_image }}		<meta property="og:image" content="{{ . }}" />{{ end }}
+		<meta property="twitter:card" content="summary" />
+{{ with .Site.Params.twitter }}		<meta property="twitter:site" content="{{ . }}" />{{ end }}
+{{ with .Permalink }}		<meta property="twitter:url" content="{{ . }}" />{{ end }}
+{{ with .Title }}		<meta property="twitter:title" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.description }}		<meta property="twitter:description" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.twitter }}		<meta property="twitter:creator" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.twitter_card_image }}		<meta property="twitter:image:src" content="{{ . }}" />{{ end }}
+{{ end }}
+{{ end }}
+
+{{ if .IsNode }}
+{{ with .Site.Params.facebook_app_id }}		<meta property="fb:admins" content="{{ . }}" />{{ end }}
+{{ with .Title }}		<meta property="og:title" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.full_name }}		<meta property="og:site_name" content="{{ . }}" />{{ end }}
+{{ with .Permalink }}		<meta property="og:url" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.description }}		<meta property="og:description" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.facebook_page }}		<meta property="og:author" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.facebook_image }}		<meta property="og:image" content="{{ . }}" />{{ end }}
+		<meta property="twitter:card" content="summary" />
+{{ with .Site.Params.twitter }}		<meta property="twitter:site" content="{{ . }}" />{{ end }}
+{{ with .Permalink }}		<meta property="twitter:url" content="{{ . }}" />{{ end }}
+{{ with .Title }}		<meta property="twitter:title" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.description }}		<meta property="twitter:description" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.twitter }}		<meta property="twitter:creator" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.twitter_card_image }}		<meta property="twitter:image:src" content="{{ . }}" />{{ end }}
+{{ end }}
+		{{ .Hugo.Generator }}
+		<title>{{ .Title }} &middot; {{ .Site.Title }}</title>
+		<link rel="shortcut icon" href="{{ .Site.BaseURL }}images/favicon.ico">
+		<link rel="stylesheet" href="{{ .Site.BaseURL }}css/style.css">
+		<link rel="stylesheet" href="{{ .Site.BaseURL }}css/highlight.css">
+		<link href="{{ .Site.BaseURL }}index.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+	</head>
